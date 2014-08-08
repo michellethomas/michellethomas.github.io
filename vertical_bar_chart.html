@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>d3 js beginning</title>
+<script src="http://d3js.org/d3.v3.min.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+
+<style>
+.chart div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+    <div class = "chart">
+    </div>
+
+    <script type="text/javascript">
+    var data = [4, 8, 12, 16, 24];
+    var words = ["four","eight","twelve","sixteen","twenty_four"]
+    var x = 10;
+    d3.select(".chart")
+      .selectAll("div")
+        .data(data)
+      .enter().append("div")
+        .transition()
+        .duration(3000)
+        .style("background-color", "red")
+        .style("height", function(d) {return d*x + "px";})
+        .text(function(d,i){return words[i];});
+  </script>
+</body>
+</html>
